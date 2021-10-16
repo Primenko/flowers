@@ -8,13 +8,12 @@ use yii\widgets\LinkPager;
 
 ?>
     <h1><?=\Yii::t('app', 'Flowers')?></h1>
-    <ul>
+    <ol>
         <?php foreach ($flowers as $flower) {?>
             <li>
-                <?= $flower->id ?>
                 <?= Html::encode($flower->name_ru) ?>
             </li>
         <?php } ?>
-    </ul>
+    </ol>
 
 <?= LinkPager::widget(['pagination' => $pagination]) ?>
