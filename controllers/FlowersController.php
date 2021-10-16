@@ -113,6 +113,34 @@ class FlowersController extends Controller
         return $this->render('addFlower', ['model' => $model]);
     }
 
+    public function actionFlower($id)
+    {
+        $flowerRecords = [];
+        $query = FlowerSlice::find(['flower_id' => $id])->orderBy(['id' => SORT_DESC])->all();
+        
+        foreach ($query as $key => $data) {
+            $flowerRecords[$key]['type'] = $data->type; 
+            $flowerRecords[$key]['cnt'] = $data->cnt_slice; 
+            $flowerRecords[$key]['date'] = $data->date_added; 
+        }
+
+//        $pagination = new Pagination([
+//            'defaultPageSize' => 15,
+//            'totalCount' => $query->count(),
+//        ]);
+
+//                $flowerRecords = $query->orderBy('id')
+//                    ->offset($pagination->offset)
+//                    ->limit($pagination->limit)
+//                    ->all();
+
+        
+        return $this->render('flower', [
+            'flowerRecords' => $flowerRecords,
+//            'pagination' => $pagination
+        ]);
+    }
+
     public function actionAddSlice()
     {
         $model = new FlowerSlice();

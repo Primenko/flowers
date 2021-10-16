@@ -11,7 +11,7 @@ use yii\widgets\LinkPager;
     <ol>
         <?php foreach ($flowers as $flower) {?>
             <li>
-                <?= Html::encode($flower->name_ru) ?>
+                <?= Html::a(Html::encode($flower->name_ru),'#') ?>
             </li>
         <?php } ?>
     </ol>
