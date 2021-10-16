@@ -43,20 +43,18 @@ AppAsset::register($this);
             Yii::$app->user->isGuest ?'':['label' => \Yii::t('app','Flowers'), 'url' => ['/flowers']],
             Yii::$app->user->isGuest ?'':['label' => \Yii::t('app','Add Flower'), 'url' => ['/flowers/add-flower']],
 
-            [
-              'label' => \Yii::t('app','Slice'),
-              'items' => [
-//                   ['label' => 'Level 1 - Dropdown A', 'url' => '#'],
-//                   '<div class="dropdown-divider"></div>',
-//                   '<div class="dropdown-header">Dropdown Header</div>',
-//                   ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
-                  Yii::$app->user->isGuest ?'':['label' => \Yii::t('app','Add flower slice'), 'url' => ['/flowers/add-slice']],
-                  Yii::$app->user->isGuest ?'':['label' => \Yii::t('app','Flowers slice'), 'url' => ['/flowers/flowers-slice']],
-              ],
-          ],
+            Yii::$app->user->isGuest ?'':[
+                'label' => \Yii::t('app','Slice'),
+                'items' => [
+                //                   ['label' => 'Level 1 - Dropdown A', 'url' => '#'],
+                //                   '<div class="dropdown-divider"></div>',
+                //                   '<div class="dropdown-header">Dropdown Header</div>',
+                //                   ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
+                  ['label' => \Yii::t('app','Add flower slice'), 'url' => ['/flowers/add-slice']],
+                  ['label' => \Yii::t('app','Flowers slice'), 'url' => ['/flowers/flowers-slice']],
 
-//            Yii::$app->user->isGuest ?'':['label' => \Yii::t('app','Add flower slice'), 'url' => ['/flowers/add-slice']],
-//            Yii::$app->user->isGuest ?'':['label' => \Yii::t('app','Flowers slice'), 'url' => ['/flowers/flowers-slice']],
+                ]
+            ],
 
 
             ['label' => \Yii::t('app','Contact'), 'url' => ['/site/contact']],
