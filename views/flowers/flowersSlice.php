@@ -16,7 +16,7 @@ use yii\widgets\LinkPager;
         <div class="col-3"><?= Yii::t('app', 'Sold') ?></div>
         <div class="col-3"><?= Yii::t('app', 'Balance') ?></div>
         <?php foreach ($flowersArData as $flower => $typeCnt) { ?>
-            <div class="col-3"><?= Html::encode($flowersAr[$flower]) ?></div>
+            <div class="col-3"><?= Html::a(Html::encode($flowersAr[$flower]),'#') ?></div>
             <div class="col-3"><?= Html::encode($sliceCnt = $typeCnt[FlowerSlice::TYPE_SLICE]['cnt']) ?></div>
             <div class="col-3"><?= Html::encode($soldCnt = $typeCnt[FlowerSlice::TYPE_SOLD]['cnt']) ?></div>
             <div class="col-3"><?= $sliceCnt - $soldCnt?></div>
