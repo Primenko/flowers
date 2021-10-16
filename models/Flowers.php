@@ -29,7 +29,7 @@ class Flowers extends ActiveRecord
     public function rules()
     {
         return [
-            [['name_en','name_ru'], 'required'],
+            [['name_ru'], 'required'],
             [['name_en','name_ru'],  'string', 'max' => 60],
         ];
     }

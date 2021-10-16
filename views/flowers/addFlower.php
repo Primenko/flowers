@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
         <?= $form->field($model, 'name_ru')->textInput(['autofocus' => true]) ?>
-        <?= $form->field($model, 'name_en')->textInput() ?>
+        <?php //echo $form->field($model, 'name_en')->textInput() ?>
 
         <div class="form-group">
             <?= Html::submitButton(\Yii::t('app', 'Submit'), ['class' => 'btn btn-primary save-flower', 'name' => 'contact-button']) ?>

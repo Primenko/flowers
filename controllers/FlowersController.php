@@ -81,8 +81,13 @@ class FlowersController extends Controller
     {
         $model = new Flowers;
 
-        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect('/flowers');
+        if ($model->load(\Yii::$app->request->post())) {
+
+            $model->name_en = $model->name_ru;
+            $model->date_added = date('Y-m-d H:i:s');
+            if ($model->save()) {
+                return $this->redirect('/flowers');
+            }
         }
 
         return $this->render('addFlower', ['model' => $model]);
