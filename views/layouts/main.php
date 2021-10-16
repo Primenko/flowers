@@ -44,7 +44,7 @@ AppAsset::register($this);
             Yii::$app->user->isGuest ?'':['label' => \Yii::t('app','Add Flower'), 'url' => ['/flowers/add-flower']],
 
             Yii::$app->user->isGuest ?'':[
-                'label' => \Yii::t('app','Slice'),
+                'label' => \Yii::t('app','Slices'),
                 'items' => [
                 //                   ['label' => 'Level 1 - Dropdown A', 'url' => '#'],
                 //                   '<div class="dropdown-divider"></div>',

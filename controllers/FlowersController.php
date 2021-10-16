@@ -95,7 +95,6 @@ class FlowersController extends Controller
 
     public function actionAddSlice()
     {
-
         $model = new FlowerSlice();
         $flowers = Flowers::find()->all();
         $flowersAr = [];
@@ -106,6 +105,7 @@ class FlowersController extends Controller
         if ($model->load(\Yii::$app->request->post())) {
             
            $model->user_id = \Yii::$app->user->id;
+           $model->type = Flowers::TYPE_SLICE;
            $model->date_added = date('Y-m-d H:i:s');
         
          if ($model->save()) 

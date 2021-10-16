@@ -8620,3 +8620,62 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1634229348.347
     'REQUEST_TIME' => 1634229348
 ]
+2021-10-16 15:10:01 [-][-][-][error][yii\console\Exception] yii\console\Exception: Missing required arguments: name in /Users/benja/www/flowers/public_html/vendor/yiisoft/yii2/console/Controller.php:243
+Stack trace:
+#0 /Users/benja/www/flowers/public_html/vendor/yiisoft/yii2/base/InlineAction.php(51): yii\console\Controller->bindActionParams(Object(yii\base\InlineAction), Array)
+#1 /Users/benja/www/flowers/public_html/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#2 /Users/benja/www/flowers/public_html/vendor/yiisoft/yii2/console/Controller.php(184): yii\base\Controller->runAction('create', Array)
+#3 /Users/benja/www/flowers/public_html/vendor/yiisoft/yii2/base/Module.php(534): yii\console\Controller->runAction('create', Array)
+#4 /Users/benja/www/flowers/public_html/vendor/yiisoft/yii2/console/Application.php(181): yii\base\Module->runAction('migrate/create', Array)
+#5 /Users/benja/www/flowers/public_html/vendor/yiisoft/yii2/console/Application.php(148): yii\console\Application->runAction('migrate/create', Array)
+#6 /Users/benja/www/flowers/public_html/vendor/yiisoft/yii2/base/Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 /Users/benja/www/flowers/public_html/yii(20): yii\base\Application->run()
+#8 {main}
+2021-10-16 15:10:01 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PHPBREW_PATH' => '/Users/benja/.phpbrew/php/php-7.2.20/bin'
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/zsh'
+    'TMPDIR' => '/var/folders/8w/d3l_bdf57qd4w23t2zzj1mbw0000gn/T/'
+    'PHPBREW_ROOT' => '/Users/benja/.phpbrew'
+    'TERM_SESSION_ID' => '8ab752a4-31b3-489c-9429-646b30c52dbd'
+    'USER' => 'benja'
+    'COMMAND_MODE' => 'unix2003'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.n0msAQp3A5/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x0:0x2'
+    'PATH' => '/usr/local/opt/node@8/bin:/Users/benja/.phpbrew/php/php-7.2.20/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS'
+    'PHPBREW_HOME' => '/Users/benja/.phpbrew'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'LaunchInstanceID' => '1F865FDD-B559-4995-8609-9BFAECDBC082'
+    '__CFBundleIdentifier' => 'com.jetbrains.PhpStorm'
+    'PWD' => '/Users/benja/www/flowers/public_html'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/benja'
+    'LOGNAME' => 'benja'
+    'LC_CTYPE' => 'en_GB.UTF-8'
+    'PHPBREW_PHP' => 'php-7.2.20'
+    'DISPLAY' => '/private/tmp/com.apple.launchd.ssTWAaWvFq/org.macosforge.xquartz:0'
+    'SECURITYSESSIONID' => '186a9'
+    '_' => './yii'
+    'PHP_SELF' => './yii'
+    'SCRIPT_NAME' => './yii'
+    'SCRIPT_FILENAME' => './yii'
+    'PATH_TRANSLATED' => './yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1634386201.9056
+    'REQUEST_TIME' => 1634386201
+    'argv' => [
+        0 => './yii'
+        1 => 'migrate/create'
+    ]
+    'argc' => 2
+]

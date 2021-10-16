@@ -27,7 +27,7 @@ class FlowerSlice extends ActiveRecord
     {
         return [
             'flower_id' => \Yii::t('app', 'Flower name (RU)'),
-            'cnt_slice' => \Yii::t('app', 'Count slice'),
+            'cnt_slice' => \Yii::t('app', 'Count'),
         ];
     }
 }
