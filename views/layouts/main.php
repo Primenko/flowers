@@ -50,7 +50,7 @@ AppAsset::register($this);
                 //                   '<div class="dropdown-divider"></div>',
                 //                   '<div class="dropdown-header">Dropdown Header</div>',
                 //                   ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
-                  ['label' => \Yii::t('app','Add flower slice'), 'url' => ['/flowers/add-slice']],
+                  ['label' => \Yii::t('app','Add record'), 'url' => ['/flowers/add-slice']],
                   ['label' => \Yii::t('app','Flowers slice'), 'url' => ['/flowers/flowers-slice']],
 
                 ]

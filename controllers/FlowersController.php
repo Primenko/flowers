@@ -96,20 +96,19 @@ class FlowersController extends Controller
     public function actionAddSlice()
     {
         $model = new FlowerSlice();
+        if ($model->load(\Yii::$app->request->post())) {
+            
+           $model->user_id = \Yii::$app->user->id;
+           $model->date_added = date('Y-m-d H:i:s');
+
+            if ($model->save())
+                return $this->redirect('/flowers/flowers-slice');
+        }
+
         $flowers = Flowers::find()->all();
         $flowersAr = [];
         foreach ($flowers as $flower) {
             $flowersAr[$flower->id] = $flower->name_ru;
-        }
-
-        if ($model->load(\Yii::$app->request->post())) {
-            
-           $model->user_id = \Yii::$app->user->id;
-           $model->type = Flowers::TYPE_SLICE;
-           $model->date_added = date('Y-m-d H:i:s');
-        
-         if ($model->save()) 
-            return $this->redirect('/flowers/flowers-slice');
         }
 
         return $this->render('addFlowerSlice', ['model' => $model,'flowersAr' => $flowersAr]);

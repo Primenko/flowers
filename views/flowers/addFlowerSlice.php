@@ -4,6 +4,7 @@
 
 
 use app\models\Flowers;
+use app\models\FlowerSlice;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 //use yii\bootstrap4\ActiveForm;
@@ -20,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
         <?= $form->field($model, 'flower_id')->dropDownList($flowersAr, ['autofocus' => true]) ?>
-        <?= $form->field($model, 'type')->dropDownList(Flowers::type()) ?>
+        <?= $form->field($model, 'type')->dropDownList(FlowerSlice::type()) ?>
         <?= $form->field($model, 'cnt_slice')->textInput() ?>
 
         <div class="form-group">
