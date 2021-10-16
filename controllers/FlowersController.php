@@ -53,26 +53,46 @@ class FlowersController extends Controller
 
     public function actionFlowersSlice()
     {
-        $query = FlowerSlice::find();
+        $flowerSlice = FlowerSlice::find()->all();
         $flowers = Flowers::find()->all();
+
         $flowersAr = [];
         foreach ($flowers as $flower) {
             $flowersAr[$flower->id] = $flower->name_ru;
         }
 
+        $flowersArData = [];
+        foreach ($flowerSlice as $flower) {
+
+            if ($flower->type === FlowerSlice::TYPE_SOLD) {
+                if (empty($flowersArData[$flower->flower_id][FlowerSlice::TYPE_SOLD]['cnt'])) {
+                    $flowersArData[$flower->flower_id][FlowerSlice::TYPE_SOLD]['cnt'] = 0;
+                }
+                $flowersArData[$flower->flower_id][FlowerSlice::TYPE_SOLD]['cnt'] += $flower->cnt_slice;
+            }
+
+            if ($flower->type === FlowerSlice::TYPE_SLICE) {
+                if (empty($flowersArData[$flower->flower_id][FlowerSlice::TYPE_SLICE]['cnt'])) {
+                    $flowersArData[$flower->flower_id][FlowerSlice::TYPE_SLICE]['cnt'] = 0;
+                }
+                $flowersArData[$flower->flower_id][FlowerSlice::TYPE_SLICE]['cnt'] += $flower->cnt_slice;
+            }
+        }
+
         $pagination = new Pagination([
             'defaultPageSize' => 15,
-            'totalCount' => $query->count(),
+            'totalCount' => count($flowersAr),
         ]);
 
-        $flowersSlice = $query->orderBy('id')
-            ->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
+//        $flowersSlice = $query->orderBy('id')
+//            ->offset($pagination->offset)
+//            ->limit($pagination->limit)
+//            ->all();
 
         return $this->render('flowersSlice', [
-            'flowersSlice' => $flowersSlice,
+//            'flowersSlice' => $flowersSlice,
             'flowersAr' => $flowersAr,
+            'flowersArData' => $flowersArData,
             'pagination' => $pagination,
         ]);
     }
