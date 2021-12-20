@@ -139,7 +139,7 @@ class FlowersController extends Controller
     public function actionFlower($id)
     {
         $flowerRecords = [];
-        $query = FlowerSlice::find(['flower_id' => $id])->orderBy(['id' => SORT_DESC])->all();
+        $query = FlowerSlice::find()->where(['flower_id' => $id])->orderBy(['id' => SORT_DESC])->all();
         
         foreach ($query as $key => $data) {
             $flowerRecords[$key]['type'] = $data->type; 
