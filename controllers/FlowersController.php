@@ -21,8 +21,13 @@ class FlowersController extends Controller
                 'class' => \yii\filters\AccessControl::class,
                 'only' => ['add'],
                 'rules' => [
+//                    [
+//                        'actions' => [''],
+//                        'allow' => true,
+//                        'roles' => ['?'],
+//                    ],
                     [
-//                        'actions' => ['add'],
+//                        'actions' => ['archiveFlower'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -31,9 +36,25 @@ class FlowersController extends Controller
         ];
     }
 
+    public function actionArchiveFlower($id)
+    {
+        $flower = Flowers::findOne(['id' => $id]);
+        
+        if ($flower) {
+            $flower->archive = 1;
+            if ($flower->save()) {
+                echo json_encode(['save' => 1]);
+                exit;
+            } else {
+                echo json_encode(array_merge(['save' => 0],$flower->getErrors()));
+                exit;
+            }
+        }
+    }
+
     public function actionIndex()
     {
-        $query = Flowers::find();
+        $query = Flowers::find()->where(['archive' => 0]);
 
         $pagination = new Pagination([
             'defaultPageSize' => 15,

@@ -27,6 +27,7 @@ class Flowers extends ActiveRecord
         return [
             [['name_ru'], 'required'],
             [['name_en','name_ru'],  'string', 'max' => 60],
+            [['archive'],  'integer', 'max' => 1],
         ];
     }
 
@@ -38,6 +39,7 @@ class Flowers extends ActiveRecord
         return [
             'name_ru' => \Yii::t('app', 'Flower name (RU)'),
             'name_en' => \Yii::t('app', 'Flower name (EN)'),
+            'archive' => '',
         ];
     }
 }
