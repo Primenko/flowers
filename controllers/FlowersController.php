@@ -43,7 +43,7 @@ class FlowersController extends Controller
         if ($flower) {
             $flower->archive = 1;
             if ($flower->save()) {
-                FlowerSlice::updateAll(['archive' => 1],'flowers_id = '.$id);
+                FlowerSlice::updateAll(['archive' => 1],'flower_id = '.$id);
                 echo json_encode(['save' => 1]);
                 exit;
             } else {
