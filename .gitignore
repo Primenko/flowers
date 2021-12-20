@@ -22,6 +22,8 @@ Thumbs.db
 
 # composer itself is not needed
 composer.phar
+access.log
+error.log
 
 # Mac DS_Store Files
 .DS_Store
