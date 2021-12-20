@@ -75,15 +75,20 @@ class FlowersController extends Controller
     public function actionFlowersSlice()
     {
         $flowerSlice = FlowerSlice::find()->all();
-        $flowers = Flowers::find()->all();
+//        $flowers = Flowers::find()->all();
+        $flowers = Flowers::find()->where(['archive' => 0])->all();
 
+        
         $flowersAr = [];
         foreach ($flowers as $flower) {
-            $flowersAr[$flower->id] = $flower->name_ru;
+            if (array_key_exists($flower->id, $flowersAr)) {
+                $flowersAr[$flower->id] = $flower->name_ru;
+            }
         }
 
         $flowersArData = [];
         foreach ($flowerSlice as $flower) {
+
 
             if ($flower->type === FlowerSlice::TYPE_SOLD) {
                 if (empty($flowersArData[$flower->flower_id][FlowerSlice::TYPE_SOLD]['cnt'])) {
