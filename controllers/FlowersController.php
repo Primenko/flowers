@@ -43,6 +43,7 @@ class FlowersController extends Controller
         if ($flower) {
             $flower->archive = 1;
             if ($flower->save()) {
+                FlowerSlice::updateAll(['archive' => 1, 'date_archive' => date('Y-m-d H:i:s')],'flowers_id = '.$id);
                 echo json_encode(['save' => 1]);
                 exit;
             } else {
@@ -74,22 +75,18 @@ class FlowersController extends Controller
 
     public function actionFlowersSlice()
     {
-        $flowerSlice = FlowerSlice::find()->all();
+        $flowerSlice = FlowerSlice::find()->where(['archive' => 0])->all();
 //        $flowers = Flowers::find()->all();
         $flowers = Flowers::find()->where(['archive' => 0])->all();
 
         
         $flowersAr = [];
         foreach ($flowers as $flower) {
-            if (array_key_exists($flower->id, $flowersAr)) {
                 $flowersAr[$flower->id] = $flower->name_ru;
-            }
         }
 
         $flowersArData = [];
         foreach ($flowerSlice as $flower) {
-
-
             if ($flower->type === FlowerSlice::TYPE_SOLD) {
                 if (empty($flowersArData[$flower->flower_id][FlowerSlice::TYPE_SOLD]['cnt'])) {
                     $flowersArData[$flower->flower_id][FlowerSlice::TYPE_SOLD]['cnt'] = 0;
@@ -179,7 +176,7 @@ class FlowersController extends Controller
                 return $this->redirect('/flowers/flowers-slice');
         }
 
-        $flowers = Flowers::find()->all();
+        $flowers = Flowers::find()->where(['archive' => 0])->all();
         $flowersAr = [];
         foreach ($flowers as $flower) {
             $flowersAr[$flower->id] = $flower->name_ru;
