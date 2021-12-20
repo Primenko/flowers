@@ -12,7 +12,7 @@ class m211220_141914_add_col_hidden extends Migration
      */
     public function safeUp()
     {
-        $this->addColumn('flower_slice', 'date_archive', 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP default null');
+        $this->addColumn('flower_slice', 'date_archive', 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP default null');
         $this->addColumn('flower_slice', 'archive', 'integer default 0');
     }
 
